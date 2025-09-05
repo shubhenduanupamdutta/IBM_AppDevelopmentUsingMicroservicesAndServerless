@@ -196,3 +196,97 @@ A serverless stack comprises of three main components, namely
 - _OpenFaas_ Allows any windows or linux process into a function
 
 ---
+
+## The Serverless Framework
+
+---
+
+### What is Serverless Framework?
+
+**Serverless Framework is a free and open source web framework written using Node.js.** It was originally designed to provision AWS Lambda Functions, Events and Infrastructure Resources safely and quickly. But it is not limited to AWS. Other supported platforms are: Microsoft Azure, Google Cloud Platform and Apache OpenWhisk
+
+Serverless framework is a CLI that offers structure, automation and best practices out-of-the-box, allowing you to build sophisticated, event-driven, serverless architecture, comprising of
+
+- Functions
+- Events
+- Resources and
+- Services.
+
+### Functions
+
+- Merely a code, deployed in the cloud, that is most often written to perform a single task.
+- Each function is independent unit of execution and deployment, like a microservice.
+- A Task can be
+  - Saving a user to the database
+  - Performing a Scheduled Job at a specified time
+
+### Events
+
+- Functions are triggered by Events
+- For example:
+  - An HTTP Request on an API Gateway URL
+  - Or a new file uploaded in an S3 bucket
+
+### Resources
+
+- Resources are infrastructure components used by the functions
+- Such as:
+  - A database provided to you as a service by cloud provider
+  - An S3 Bucket
+
+### Services
+
+- A service is a frameworks unit of organization. Think of it as project files, though you can have multiple services for single application.
+- A service is configured via a `serverless.yaml` file where you can define your
+  - Functions
+  - Events
+  - Resources to Deploy
+- When deploying with framework CLI, everything in configuration file is deployed at once.
+
+### serverless.yaml
+
+```yaml
+service: products
+
+functions:
+  productsCreate:
+    events:
+      - httpApi: "POST /products/create"
+  productsDelete:
+    events:
+      - httpApi: "DELETE /products/delete"
+resources:
+```
+
+### Serverless Framework - Hello World on AWS
+
+1. Install serverless CLI
+
+   ```sh
+   npm install -g serverless
+   ```
+
+2. Create your first AWS HTTP API using python when you run serverless
+
+   ```sh
+   serverless
+   ```
+
+   Command will present you with a wizard, and when you go through it, it will provide you with a URL.
+
+3. Change the function code to Hello World
+
+   ```python
+   def hello(event, context):
+       body = "Hello World!"
+       response = {"statusCode": 200, "body": body}
+       return response
+   ```
+
+4. Redeploy using serverless
+
+   ```sh
+   serverless deploy
+   ```
+
+---
