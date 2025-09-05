@@ -366,3 +366,50 @@ To restrict user to their own todo items
 - Can be polyglot (multi-lingual)
 - Prevent language lock-in
 - Depend on available resources
+
+---
+
+## Popular Serverless Platform
+
+---
+
+### AWS Lambda
+
+- Event-driven compute service
+- Responds to requests at any scale, from dozens daily, to 100s of thousands per second automatically
+- Offers 200+ services
+- Charges are for running a function and for data transfer between services
+- Versatile
+  - File Processing
+  - Web application
+  - IoT and others
+
+### Google Cloud Functions
+
+- Simplified developer experience
+- Scales up automatically
+- Scales down to zero
+- Provides Firebase for real-time sync
+- Handles asynchronous workloads such as lightweight ETL functions (they don't required individual servers)
+
+### Microsoft Azure Functions
+
+- A serverless solution
+- Uses preferred language
+- Promotes DevOps Capabilities (easy setup of CI/CD)
+- Provides flexible pricing
+
+### IBM Cloud Functions
+
+- Promotes easy integration with other services
+- Provides cost-effective computing. You only pay for what you use, down to 1/10 th of the second.
+- Provides cognitive data processing using Watson
+- Supports HA and disaster recovery
+- Provides debugging service
+
+### Knative (Open Source)
+
+- Based on containers in K8s
+- Avoids vendor lock-in
+- Is platform agnostic
+- Allows progressive rollouts
