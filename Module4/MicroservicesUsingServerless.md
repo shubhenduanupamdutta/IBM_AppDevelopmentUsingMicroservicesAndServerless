@@ -248,6 +248,85 @@ ibmcloud ce app get --name helloworld --output url
 
 ---
 
+## Updating Deployed Application
+
+---
+
+### Updating of Application
+
+Suppose you decide to move some of your data from SQL DB to NoSQL DB. Consequently, you develop and build another container image for your new DB service and update your apps DB service based on the new image. In addition, you require some new environment variables and more computational resources to handle the requests to your NoSQL DB.
+
+Code Engine manages each revision of your deployed application so that you don't need to delete your application and deploy a new one. You can simply update your application and Code Engine will create and manage a new revision of your application.
+
+### Common Updating Scenarios
+
+- Update Environment Variables (Such as DB connection strings, API keys, etc.)
+- Update application visibility (Public/Private)
+- Update Image reference or GitHub repository
+- Update runtime resources (CPU and Memory)
+
+### Methods to update application
+
+#### Console method
+
+You can use the IBM Cloud Console to update your application. You can update environment variables, image reference, GitHub repository, runtime resources, and application visibility.
+
+#### CLI method
+
+You can use the IBM Cloud CLI to update your application. You can update environment variables, image reference, GitHub repository, runtime resources, and application visibility.
+
+Basic Update Command
+
+```sh
+ibmcloud ce app update --name <app-name> [options]
+```
+
+#### Environment Variables
+
+```sh
+ibmcloud ce app update --name <app-name> --env <key>=<value>
+```
+
+example:
+
+```sh
+ibmcloud ce app update --name helloworld --env DB_HOST=nosql.example.com
+```
+
+#### Update Visibility
+
+```sh
+ibmcloud ce app update --name <app-name> --visibility <public|private>
+```
+
+#### Update Image Reference
+
+```sh
+ibmcloud ce app update --name <app-name> --image <image-name> --registry-secret <secret-name>
+```
+
+example:
+
+```sh
+ibmcloud ce app update --name helloworld --image us.icr.io/my-namespace/my-image:latest --registry-secret my-secret
+```
+
+#### Update Runtime Resources
+
+```sh
+ibmcloud ce app update --name <app-name> --cpu <cpu-value> --memory <memory-value>
+```
+
+example:
+
+```sh
+ibmcloud ce app update --name helloworld --cpu 2 --memory 16G
+```
+
+Above command will update the application to use 2 vCPU and 16 GB of memory.
+
+---
+
 ## Hands on Lab
 
 ---
