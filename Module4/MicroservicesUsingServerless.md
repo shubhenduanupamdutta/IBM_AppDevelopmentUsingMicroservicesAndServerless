@@ -134,3 +134,17 @@ Managing environment variables in Code Engine is a breeze, and you can do it in 
   - Billing jobs
 
 ---
+
+## Integrations of IBM Code Engine with Other Services
+
+---
+
+---
+
+## Hands on Lab
+
+---
+
+- [Deploying your First Application on IBM Cloud Code Engine](./HandsOnLab_DeployingFirstApp.md)
+
+---
