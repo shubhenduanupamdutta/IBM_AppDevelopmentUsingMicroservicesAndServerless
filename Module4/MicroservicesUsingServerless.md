@@ -92,3 +92,45 @@ Managing environment variables in Code Engine is a breeze, and you can do it in 
    - Before you start, ensure your [Code Engine CLI](https://cloud.ibm.com/docs/codeengine?topic=codeengine-install-cli) environment is set up.
 
    - The environment variables can be created, updated, or deleted using the CLI. For detailed instructions for creating, updating/modifying, or deleting when you no longer need it, see [IBM Cloud Documentation](https://cloud.ibm.com/docs/codeengine?topic=codeengine-envvar) and follow the step-by-step guide.
+
+---
+
+## Project, Application, Build and Jobs
+
+---
+
+### Project
+
+- Represents a _group_ that contains and manages its resource and entities.
+- These entities include applications, jobs, builds, configmaps, secrets, certificate for TLS HTTPs connections and more.
+- One important function of the project is to provide a namespace for the entities it contains. This means that the names of entities only need to be unique within the project, not across all projects.
+- Another important function is managing resources and providing access control.
+- You can monitor the resource allocation for the whole Project in terms of CPU and memory usage.
+
+### Application
+
+- In code engine, your code will run the application. Like regular deployed apps your running app can also serve HTTP requests over REST APIs.
+- Code engine also supports applications that use WebSockets and gRPC protocols.
+
+### Build
+
+- Mechanism to build container image from your source code.
+- Code Engine supports building from _Dockerfile_.
+- Alternatively it can use a _Cloud Native Builpack_ . _Buildpack_ contains executable to perform tasks such as inspecting source code, creating a build plan, or executing the build plan to produce and image.
+- After your container image is built, you can deploy image to the Code Engine and create application accordingly.
+
+### Job
+
+- A job is one time execution of your code.
+- Like an application, a job runs the executable code packaged in a container image.
+- Depending on load, Code Engine will create one or more instances of the job to process the workload.
+- Before you run a job in Code Engine, you can specify workload configurations that are used each time the job runs.
+- Some typical jobs are:
+  - Data processing jobs
+  - Batch jobs
+  - Scheduled jobs
+  - ETL jobs
+  - Machine learning jobs
+  - Billing jobs
+
+---
