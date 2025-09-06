@@ -14,3 +14,4 @@ This is a coursera for IBM Full Stack Developer Professional Certificate.
 - [Web API Essentials - REST & GraphQL](./Module2/WebAPIEssentials_RESTandGraphQL.md)
 - [Serverless](./Module3/Serverless.md)
 - [Creating and Deploying Microservices using Serverless](./Module4/MicroservicesUsingServerless.md)
+- [Deploy, Update, and Scale Microservices using Serverless](./Module4/MicroservicesUsingServerless.md)

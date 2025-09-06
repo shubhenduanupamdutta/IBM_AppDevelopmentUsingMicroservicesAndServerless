@@ -335,4 +335,6 @@ Above command will update the application to use 2 vCPU and 16 GB of memory.
 
 - [Deploying your first docker image on Code Engine using Python](./HandsOnLab_DeployingDockerImage.md)
 
+- [Deploy, Update, and Scale Microservices using Serverless](./HandsOnLab_MicroservicesUsingServerless.md)
+
 ---
