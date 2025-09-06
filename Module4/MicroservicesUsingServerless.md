@@ -139,6 +139,113 @@ Managing environment variables in Code Engine is a breeze, and you can do it in 
 
 ---
 
+In the IBM Cloud Code Engine world, service bindings play a crucial role in granting access to IBM Cloud services for applications, jobs, and functions. This process involves linking a service instance to a Code Engine application or job, automatically incorporating credentials into the container's environment variables.
+
+### IBM cloud code engine service binding
+
+Service bindings act as a bridge, allowing applications, jobs, and functions in Code Engine to access the capabilities of IBM Cloud services seamlessly. By binding a service instance to your Code Engine application or job, credentials are added to the environment, making the integration smooth. The service credentials, presented as a JSON object on the service instance dashboard, become part of the application or job environment once bound.
+
+### Binding process
+
+You can streamline the binding process by following these steps.
+
+- Provision the service: Before binding, you must create an instance of the service you want to connect.
+
+- Use code engine console or CLI: Use the Code Engine console or Command Line Interface (CLI) to bind your app, job, or function to the IBM Cloud service instance.
+
+- Service access secret: Code Engine uses a service access secret to store the specified IBM Cloud service instance's credentials securely. This secret is crucial for connecting the IBM Cloud service instance to your Code Engine app, job, or function. Code Engine handles the creation and management of this secret for you.
+
+### Types of services you can bind
+
+Any IBM Cloud service compatible with IBM Identity and Access Management (IAM) and utilizing service credentials can seamlessly integrate into your Code Engine workload.
+
+#### Access requirements
+
+Ensure you configure your Code Engine project with the necessary IAM Access policies. These policies authorize Code Engine service bindings to view service instances and manage service credentials. IAM policies are associated with a service ID.
+
+#### Lifecycle of service binding
+
+A service binding remains active as long as the Code Engine workload and the associated service instance are active. Unbinding or deleting a service binding removes the connection, rendering the app, job, or function unable to access the previously bound IBM Cloud service. Manual deletion is required if you want to delete the service instance.
+
+### Conclusion
+
+Mastering IBM Cloud Code Engine Service Binding opens opportunities for integrating robust IBM Cloud services seamlessly into your applications. Understanding the binding process, the types of services you can connect, and the lifecycle of service bindings empowers you to make the most of this essential feature for a smooth and efficient development experience.
+
+---
+
+## Building Container Images for Microservices
+
+---
+
+### What is Container?
+
+- Standalone and executable package of software that includes everything needed to run an application: code, runtime, system tools, libraries, and settings.
+- Run anywhere
+- Small, fast and portable
+- Perfect match for microservices architecture
+
+### Docker
+
+- Popular platform for developing, shipping, and running applications using containerization.
+- Provides a straightforward way to package applications and their dependencies into containers.
+- Main container technology used in IBM Cloud Code Engine.
+
+### Build a Docker container image
+
+- Create a Dockerfile
+- Use docker build command to build the image from the Dockerfile
+- Container is different from Container Image
+  - Conatiner Image is a static file that includes the application and its dependencies. It is immutable.
+  - Container is a running instance of a container image
+
+### Push to Container Registry
+
+- Use docker push command to push the image to a container registry
+- IBM Cloud Container Registry is a private registry service for storing and managing container images.
+- Container Images in the registry can be easily pulled by using unique image name. Image name includes registry URL, namespace, image name and tag. for example, `us.icr.io/my-namespace/my-image:latest`
+
+---
+
+## Deploying and Running Applications
+
+---
+
+### Deploying an application to Code Engine
+
+- There are two modes you can use for deploying an application to Code Engine.
+
+  1. Public/Private container registries
+  2. Source code repository with Dockerfile or Cloud Native Buildpack
+
+- IBM Cloud Console can be used to deploy the application. With just a few clicks you can deploy your application to Code Engine.
+- IBM Cloud CLI can also be used to deploy the application. This is useful for automation and scripting.
+- Engine will provide a URL for your application. You can use this URL to access your application.
+
+### Run and Test your application
+
+- If the application runs without a problem, it should be ready within several minutes.
+- You can use the Console to test your application using the provided URL.
+
+### Create an application using CLI
+
+#### Create application using the following command
+
+```sh
+ibmcloud ce application create --name <app-name> --image <image-name> --registry-secret <secret-name>
+```
+
+#### After app is created and deployed you can test your application
+
+```sh
+ibmcloud ce app get --name <app-name> --output <output-format-of-your-application-e.g.-url>
+```
+
+Example:
+
+```sh
+ibmcloud ce app get --name helloworld --output url
+```
+
 ---
 
 ## Hands on Lab
