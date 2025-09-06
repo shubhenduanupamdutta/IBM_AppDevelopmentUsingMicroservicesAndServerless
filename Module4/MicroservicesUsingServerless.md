@@ -254,4 +254,6 @@ ibmcloud ce app get --name helloworld --output url
 
 - [Deploying your First Application on IBM Cloud Code Engine](./HandsOnLab_DeployingFirstApp.md)
 
+- [Deploying your first docker image on Code Engine using Python](./HandsOnLab_DeployingDockerImage.md)
+
 ---
